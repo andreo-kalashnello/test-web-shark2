@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
+import { DEFAULT_DATE_TO } from '../../constants/dateFilter';
 import DateField from './DateField';
 import 'flatpickr/dist/flatpickr.min.css';
 import './DateFilter.scss';
 
 const DATE_TO_PICKER_OPTIONS = {
-  defaultDate: '09.08.2016',
+  defaultDate: DEFAULT_DATE_TO,
   defaultMonth: 11,
   defaultYear: 2016,
 };
@@ -22,8 +23,9 @@ export default function DateFilter() {
         role="group"
         aria-labelledby="date-filter-label"
       >
-        <DateField label="Date from" placeholder="from" />
+        <DateField field="from" label="Date from" placeholder="from" />
         <DateField
+          field="to"
           label="Date to"
           placeholder="09_08_2016"
           pickerOptions={toPickerOptions}

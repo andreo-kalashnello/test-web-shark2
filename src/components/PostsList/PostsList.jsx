@@ -3,7 +3,14 @@ import PostCard from '../PostCard/PostCard';
 import './PostsList.scss';
 
 export default function PostsList() {
-  const { layout, visiblePosts, loading, error } = usePostsContext();
+  const {
+    layout,
+    visiblePosts,
+    filteredPosts,
+    loading,
+    error,
+    isDateFilterActive,
+  } = usePostsContext();
 
   if (loading) {
     return <p className="posts__status">Loading…</p>;
@@ -11,6 +18,16 @@ export default function PostsList() {
 
   if (error) {
     return <p className="posts__status posts__status--error">{error}</p>;
+  }
+
+  if (filteredPosts.length === 0) {
+    return (
+      <p className="posts__status">
+        {isDateFilterActive
+          ? 'No posts for the selected date range.'
+          : 'No posts to display.'}
+      </p>
+    );
   }
 
   return (

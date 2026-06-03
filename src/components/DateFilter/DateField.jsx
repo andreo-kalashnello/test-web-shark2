@@ -1,17 +1,36 @@
-import { useId, useMemo, useRef } from 'react';
+import { useCallback, useId, useMemo, useRef } from 'react';
 import { FLATPICKR_BASE_OPTIONS } from '../../constants/flatpickrLocale';
+import { usePostsContext } from '../../context/PostsContext';
 import { useFlatpickr } from '../../hooks/useFlatpickr';
+import { dateFromPickerSelection } from '../../utils/dateUtils';
 
-export default function DateField({ label, placeholder, pickerOptions }) {
+export default function DateField({ field, label, placeholder, pickerOptions }) {
   const inputRef = useRef(null);
   const inputId = useId();
+  const { setDateFrom, setDateTo } = usePostsContext();
+
+  const handleChange = useCallback(
+    (selectedDates, dateStr) => {
+      const parsed = dateFromPickerSelection(selectedDates, dateStr);
+
+      if (field === 'from') {
+        setDateFrom(parsed);
+        return;
+      }
+
+      setDateTo(parsed);
+    },
+    [field, setDateFrom, setDateTo],
+  );
 
   const flatpickrOptions = useMemo(
-    () =>
-      pickerOptions
+    () => ({
+      ...(pickerOptions
         ? { ...FLATPICKR_BASE_OPTIONS, ...pickerOptions }
-        : FLATPICKR_BASE_OPTIONS,
-    [pickerOptions],
+        : FLATPICKR_BASE_OPTIONS),
+      onChange: handleChange,
+    }),
+    [pickerOptions, handleChange],
   );
 
   useFlatpickr(inputRef, flatpickrOptions);
