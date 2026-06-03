@@ -1,4 +1,4 @@
-/** Post date in data: "9-08-2016" (d-M-yyyy) */
+/** Post date in data: "9-06-2026" (d-M-yyyy) */
 const POST_DATE_PATTERN = /^(\d{1,2})-(\d{1,2})-(\d{4})$/;
 
 /** Flatpickr / input: "09.08.2016" (d.m.Y) */
