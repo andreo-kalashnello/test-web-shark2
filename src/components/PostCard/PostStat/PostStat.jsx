@@ -1,6 +1,8 @@
+import { publicAsset } from '../../../utils/publicAsset';
+
 const ICONS = {
-  like: '/images/like.svg',
-  comment: '/images/comment.svg',
+  like: publicAsset('images/like.svg'),
+  comment: publicAsset('images/comment.svg'),
 };
 
 export default function PostStat({ type, value }) {
