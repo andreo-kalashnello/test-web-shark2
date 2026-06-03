@@ -28,6 +28,16 @@ export function parsePickerDate(value) {
   return toLocalDate(Number(day), Number(month), Number(year));
 }
 
+export function formatPickerDate(date) {
+  if (!date) return null;
+
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+
+  return `${day}.${month}.${year}`;
+}
+
 export function dateFromPickerSelection(selectedDates, dateStr) {
   if (selectedDates?.length > 0) {
     const [date] = selectedDates;

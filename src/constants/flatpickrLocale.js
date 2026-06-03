@@ -49,4 +49,6 @@ export const FLATPICKR_BASE_OPTIONS = {
   disableMobile: true,
   locale: FLATPICKR_LOCALE,
   allowInput: true,
+  /** Calendar closes after pick — filter applies immediately */
+  closeOnSelect: true,
 };

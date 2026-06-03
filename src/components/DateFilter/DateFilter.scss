@@ -1,8 +1,18 @@
+.filters__date-wrap {
+  margin-top: 20px;
+}
+
 .filters__date {
   display: flex;
   gap: 20px;
   align-items: center;
-  margin-top: 20px;
+}
+
+.filters__hint {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--color-text-grey);
+  line-height: 1.4;
 }
 
 .filters__label {
