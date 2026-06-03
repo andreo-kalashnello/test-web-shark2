@@ -1,0 +1,79 @@
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.posts--grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+
+  .post__card {
+    flex-direction: column;
+  }
+
+  .post__card-image {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .post__card-info {
+    padding: 12px 12px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 15px;
+  }
+
+  .post__card-info-item:nth-child(1),
+  .post__card-info-item:nth-child(2) {
+    grid-row: 1;
+  }
+
+  .post__card-info-item:nth-child(3) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .post__card-upload {
+    font-size: 0.875rem;
+  }
+
+  .post__card-date {
+    font-size: 0.75rem;
+  }
+}
+
+.posts--list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .post__card {
+    flex-direction: row;
+  }
+
+  .post__card-image {
+    max-width: 86px;
+    width: 86px;
+    height: auto;
+  }
+}
+
+.posts__status {
+  padding: 24px;
+  text-align: center;
+  color: var(--color-text-grey);
+
+  &--error {
+    color: #c0392b;
+  }
+}

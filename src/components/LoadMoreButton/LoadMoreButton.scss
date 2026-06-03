@@ -1,0 +1,21 @@
+.loadmore__btn {
+  padding: 8px 26px;
+  border: 2px solid var(--color-grey);
+  border-radius: 30px;
+  color: var(--color-grey);
+  margin: 0 auto;
+  font-size: 0.75rem;
+  background: transparent;
+  transition: 0.3s all;
+
+  &:hover {
+    background-color: var(--color-green);
+    border-color: var(--color-green);
+    color: var(--color-white);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 2px;
+  }
+}

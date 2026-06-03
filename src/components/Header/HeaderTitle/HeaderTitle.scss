@@ -1,0 +1,24 @@
+.user__name {
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+}
+
+.header__info-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header__link {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  color: var(--color-blue);
+  border: 1px solid var(--color-blue);
+  border-radius: 2px;
+  transition: 0.3s all;
+
+  &:hover {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+  }
+}
